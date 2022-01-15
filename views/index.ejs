@@ -10,7 +10,9 @@
 
 <body>
 
-    <%= data %>
+    <% for(let i = data.length-1; i>=0; i--) { %>
+        <img src="<%= data[i].url %>" alt="<%= data[i].title %>" style="width: 100%">
+    <% } %>
 </body>
 
 </html>
