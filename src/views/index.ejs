@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content-type="application/json">
+    </meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacetagram! | Home</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="menu" role="navigation">
+        <h3>🚀 Spacetagram!</h3>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Source</a></li>
+        </ul>
+    </nav>
+
+    <main role="main">
+        <% for(let i = data.length-1; i>=0; i--) { %>
+            <% if (data[i].media_type!=="video") { %>
+                <section class="post">
+                    <% if (i==data.length-1) { %>
+
+                        <!-- Gradient Background -->
+                        <div class="img-gradient">
+                            <img class="todays-image" src="<%= data[i].url %>" alt="<%= data[i].title %>">
+                        </div>
+
+                        <!-- Today's Overlay -->
+                        <div class="today-overlay">
+                            <h1 class="title today-title">Today's Picture of the Day: <%= data[i].title %> </h2>
+                        </div>
+
+                    <% } else { %>
+                        <img class="nasaImage" src="<%= data[i].url %>" alt="<%= data[i].title %>">
+
+                        <h2 class="title"> <%= data[i].title %> </h2>
+                        <p class="date"> <%= data[i].date %> </p>
+                        <p class="explanation"> <%= data[i].explanation %> </p>
+                    <% } %>
+                </section>
+            <% } %>
+        <% } %>
+    </main>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
